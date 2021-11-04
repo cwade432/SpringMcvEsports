@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View All Players</title>
+</head>
+<body>
+<form>
+<table>
+<tr th:each="currentContact : ${players}">
+	<td th:text="${currentContact.id}" />
+	<td th:text="${currentContact.username}" />
+	<td th:text="${currentContact.kills}" />
+	<td th:text="${currentContact.deaths}" />
+	<td th:text="${currentContact.assits}" />	
+	<td th:text="${currentContact.esportsTeam.teamName}" />
+	<td th:text="${currentContact.esportsTeam.wins}" />
+	<td th:text="${currentContact.esportsTeam.losses}" />
+	<td><a th:href="@{/edit/{id}(id=${currentContact.id})}">Edit</a></td>
+	<td><a th:href="@{/delete/{id}(id=${currentContact.id})}">Delete</a></td>
+</tr>		
+</table>
+</form>
+<a href="../inputContact">Add a new contact</a>
+</body>
+</html>
