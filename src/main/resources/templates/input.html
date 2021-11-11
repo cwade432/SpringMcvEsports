@@ -3,9 +3,68 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert New Player</title>
+
+<script>
+
+	function validate()
+	{
+		if(document.myForm.username.value =="")
+		{
+			alert("Please Provide Username Value!");
+			document.myForm.focus();
+			return false;
+		}
+		
+		if(document.myForm.kills.value =="")
+		{
+			alert("Please provide kills value!");
+			document.myForm.focus();
+			return false;
+		}
+		
+		if(document.myForm.deaths.value =="")
+		{
+			alert("Please provide deaths value!");
+			document.myForm.focus();
+			return false;
+		}
+		
+		if(document.myForm.assits.value =="")
+		{
+			alert("Please provide assists value!");
+			document.myForm.focus();
+			return false;
+		}
+		
+		if(document.myForm.teamNameId.value =="")
+		{
+			alert("Please provide esports team value!")
+			document.myForm.focus();
+			return false;
+		}
+		
+		if(document.myForm.teamWinsId.value =="")
+		{
+			alert("Please provide team wins value!")
+			document.myForm.focus();
+			return false;
+		}
+		
+		if(document.myForm.teamLossesId.value =="")
+		{
+			alert("Please provide team losses value!")
+			document.myForm.focus();
+			return false;
+		}
+		
+		return(true);
+	}
+
+</script>
+
 </head>
 <body>
-<form th:object="${newContact}" th:action="@{/update/{id}(id=${newContact.id})}" method=POST>
+<form th:object="${newContact}" th:action="@{/update/{id}(id=${newContact.id})}" name="myForm" method=POST onsubmit="return(validate())">
 User Name: <input name="username" size="20" th:field="*{username}">
 <br />
 Kills: <input name="kills" size="10" th:field="*{kills}">
@@ -14,11 +73,11 @@ Deaths: <input name="deaths" size="20" th:field="*{deaths}">
 <br />
 Assists: <input name="assits" size="20" th:field="*{assits}">
 <br />
-Team Name: <input name="esportsTeam.teamName" size="20" th:field="*{esportsTeam.teamName}">
+Team Name: <input name="esportsTeam.teamName" id="teamNameId" size="20" th:field="*{esportsTeam.teamName}">
 <br />
-Wins: <input name="esportsTeam.wins" size="20" th:field="*{esportsTeam.wins}">
+Wins: <input name="esportsTeam.wins" id="teamWinsId" size="20" th:field="*{esportsTeam.wins}">
 <br />
-Losses: <input name="esportsTeam.losses" size="20" th:field="*{esportsTeam.losses}">
+Losses: <input name="esportsTeam.losses" id="teamLossesId" size="20" th:field="*{esportsTeam.losses}">
 <br />
 <input name="submit" type="submit" value="submit" />
 </form>

@@ -3,10 +3,31 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>View All Players</title>
+<style>
+body {background-color: powderblue;}
+.style1{
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: orange;
+	padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+}
+.link{
+	font-family:Arail, Helvetica, sans-serif;
+	background-color: yellow;
+	padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+}
+
+</style>
 </head>
 <body>
 <form>
-<table>
+<p class="style1"><strong>Id | Name | | K | D | A | | Team Name | |  Wins | Losses</strong></p>
+<table class = "style1">
 <tr th:each="currentContact : ${players}">
 	<td th:text="${currentContact.id}" />
 	<td th:text="${currentContact.username}" />
@@ -21,6 +42,6 @@
 </tr>		
 </table>
 </form>
-<a href="../inputContact">Add a new contact</a>
+<p><a href="../inputContact" class ="link">Add a new contact</a></p>
 </body>
 </html>
